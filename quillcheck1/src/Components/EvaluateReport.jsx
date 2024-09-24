@@ -1,5 +1,5 @@
 import React from 'react';
-import Assets from './Assets';
+import Assets from './Assests';
 import Status from './Evaluate/Status';
 import Report from './Evaluate/Report';
 import Info from './Evaluate/Info';

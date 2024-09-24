@@ -1,5 +1,5 @@
 import React from 'react'
-import Assets from '../Assets'
+import Assets from '../Assests'
 
 const Report = () => {
     return (
