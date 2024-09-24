@@ -1,46 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Assets from './Assests';
 
-const Home = () => {
+const SelectToken = ({ onCheckClick, setSelectedToken, setTokenAddress }) => {
+  const [selectedButton, setSelectedButton] = useState(null);
+  const [inputValue, setInputValue] = useState(''); // New state for input value
+
+  const handleButtonClick = (buttonIndex, token) => {
+    setSelectedButton(buttonIndex);
+    setSelectedToken(token); // Update the selected token in the parent
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    setTokenAddress(e.target.value); // Pass the input value to the parent
+  };
+
   return (
-    <div className="flex bg-[url(C:\Users\nisha\Desktop\QuillCheck\quillcheck1\src\assets\BG.png)] items-center justify-center min-h-screen bg-blue-900">
-      <div className="bg-[#121a33] p-8 rounded-lg shadow-lg text-center w-[400px]">
-        <div className="text-white mb-6">
-          <img
-            src="/logo.png"
-            alt="QuillCheck"
-            className="mx-auto mb-6"
-            width={80}
-          />
-          <h1 className="text-3xl font-semibold">Evaluate Any Token</h1>
+    <div
+      className="bg-[#18162099]/60 rounded-[10px] backdrop-filter backdrop-blur-sm w-[460px] mx-auto p-[30px] jost"
+      style={{ boxShadow: '4px 4px 12px rgba(0, 0, 0, 0.5)' }}
+    >
+      <p className="text-white text-4xl text-center">Evaluate Any Token</p>
+      <div className="mt-6 space-y-4">
+        <div className="flex justify-center space-x-6">
+          {['ETH', 'BSC', 'Polygon', 'Base'].map((token, index) => (
+            <button
+              key={token}
+              className={`px-4 py-2 rounded-md flex items-center text-sm gap-2 ${
+                selectedButton === index + 1
+                  ? 'bg-black text-white font-normal border border-black'
+                  : 'border border-white text-white opacity-60 font-light hover:bg-black hover:opacity-100 hover:border-black'
+              }`}
+              onClick={() => handleButtonClick(index + 1, token)}
+            >
+              <img className="h-4" src={Assets[token]} alt={token} /> {token}
+            </button>
+          ))}
         </div>
-        <div className="flex justify-around mb-6">
-          <button className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
-            ETH
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
-            BSC
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
-            Polygon
-          </button>
-          <button className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg">
-            Base
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange} // Handle input change
+          className="bg-white w-full h-12 rounded-[5px] text-black p-4"
+          placeholder="Enter token address"
+        />
+        <div className="flex justify-end rounded-[20px]">
+          <button
+            onClick={onCheckClick}
+            className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-2 px-6 ml-auto text-xl border-y border-y-[#86AFFF]"
+          >
+            Check
           </button>
         </div>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Enter token address"
-            className="w-full p-3 rounded-lg border border-gray-400 focus:outline-none focus:ring focus:ring-indigo-300"
-          />
-        </div>
-        <button className="bg-blue-600 hover:bg-blue-500 text-white py-3 px-6 rounded-lg w-full">
-          Check
-        </button>
-        
       </div>
     </div>
   );
 };
 
-export default Home;
+export default SelectToken;

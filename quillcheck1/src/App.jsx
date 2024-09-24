@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Assests from './Components/Assests';
 import './App.css'
 import SelectToken from './Components/SelectToken'; 
 
@@ -9,9 +8,9 @@ function App() {
 
   return (
     <>
-      
+      <div className=' bg-[url(C:\Users\nisha\Desktop\QuillCheck\quillcheck1\src\assets\BG.png)] bg-cover bg-center h-screen'>
      <SelectToken />
-    
+     </div>
       
     </>
   )
