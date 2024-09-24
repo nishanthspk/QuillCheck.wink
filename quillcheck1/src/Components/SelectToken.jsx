@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className="flex bg-[url()] items-center justify-center min-h-screen bg-blue-900">
+    <div className="flex bg-[url(C:\Users\nisha\Desktop\QuillCheck\quillcheck1\src\assets\BG.png)] items-center justify-center min-h-screen bg-blue-900">
       <div className="bg-[#121a33] p-8 rounded-lg shadow-lg text-center w-[400px]">
         <div className="text-white mb-6">
           <img
