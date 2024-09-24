@@ -28,7 +28,7 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress }) => {
           <div className="flex rounded-[20px]">
             <button
               onClick={onBackClick}
-              className="bg-[#007AFF] hover:bg-[#007AFF]/70 rounded-[5px] text-white p-1 px-6 text-base border-y border-y-[#86AFFF]"
+              className="bg-[#007AFF] hover:bg-[#007AFF] rounded-[5px] text-white p-1 px-6 text-base border-y border-y-[#86AFFF]"
             >
               Back
             </button>
@@ -54,11 +54,11 @@ const EvaluateReport = ({ onBackClick, selectedToken, tokenAddress }) => {
       <div className="p-[20px]">
         <div className="flex items-center justify-between h-full">
           <Status />
-          <div className="border-l-2 border-white/10 mx-5 self-stretch"></div>
+          <div className="border-l-2 border-white mx-5 "></div>
           <Report />
         </div>
 
-        <div className="border-b-2 border-white/10 my-5 self-stretch"></div>
+        <div className="border-b-2 border-white my-5 "></div>
 
         <Info />
       </div>
